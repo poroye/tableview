@@ -19,7 +19,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.peopleTelephone.text = eachpeople.telOrgList[0]
         cell.peopleMobilephone.text = eachpeople.mobileList[0]
         cell.peopleEmail.text = eachpeople.emailGov
-        cell.peopleNavdate.text = eachpeople.nav_date
+        cell.peopleNavdate.text = fixStrDate(dateStr: eachpeople.nav_date)
         return cell
     }
     
@@ -37,6 +37,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 DispatchQueue.main.async {
                     allpeople = PP
                     print(allpeople)
+                    print("--> \(strToDate(strDate: allpeople.results[0].nav_date)) << date")
                     self.table.reloadData()
                 }
             }catch{print(error)}

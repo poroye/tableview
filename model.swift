@@ -32,3 +32,21 @@ struct people:Codable{
     let nav_date:String
     let imageProfileUrl:String
 }
+
+func strToDate(strDate:String) -> Date{
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    let dateFromString = dateFormatter.date(from: strDate)
+    return dateFromString ?? Date()
+}
+
+func dateToStr(datetoConvert:Date)->String{
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd-MM-yyyy"
+    let stringDate = dateFormatter.string(from: datetoConvert)
+    return stringDate
+}
+
+func fixStrDate(dateStr:String) -> String{
+    return dateToStr(datetoConvert: strToDate(strDate: dateStr))
+}
