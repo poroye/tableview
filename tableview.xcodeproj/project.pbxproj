@@ -13,6 +13,8 @@
 		155A5899270E8B6F007E77C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155A5897270E8B6F007E77C5 /* Main.storyboard */; };
 		155A589B270E8B72007E77C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 155A589A270E8B72007E77C5 /* Assets.xcassets */; };
 		155A589E270E8B72007E77C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155A589C270E8B72007E77C5 /* LaunchScreen.storyboard */; };
+		155A58A6270E8C93007E77C5 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A58A5270E8C93007E77C5 /* model.swift */; };
+		155A58A8270E9AE7007E77C5 /* peopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A58A7270E9AE7007E77C5 /* peopleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		155A589A270E8B72007E77C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		155A589D270E8B72007E77C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		155A589F270E8B72007E77C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		155A58A5270E8C93007E77C5 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		155A58A7270E9AE7007E77C5 /* peopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = peopleTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,7 @@
 		155A5885270E8B6F007E77C5 = {
 			isa = PBXGroup;
 			children = (
+				155A58A5270E8C93007E77C5 /* model.swift */,
 				155A5890270E8B6F007E77C5 /* tableview */,
 				155A588F270E8B6F007E77C5 /* Products */,
 			);
@@ -63,6 +68,7 @@
 				155A589A270E8B72007E77C5 /* Assets.xcassets */,
 				155A589C270E8B72007E77C5 /* LaunchScreen.storyboard */,
 				155A589F270E8B72007E77C5 /* Info.plist */,
+				155A58A7270E9AE7007E77C5 /* peopleTableViewCell.swift */,
 			);
 			path = tableview;
 			sourceTree = "<group>";
@@ -139,8 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				155A5896270E8B6F007E77C5 /* ViewController.swift in Sources */,
+				155A58A8270E9AE7007E77C5 /* peopleTableViewCell.swift in Sources */,
 				155A5892270E8B6F007E77C5 /* AppDelegate.swift in Sources */,
 				155A5894270E8B6F007E77C5 /* SceneDelegate.swift in Sources */,
+				155A58A6270E8C93007E77C5 /* model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
