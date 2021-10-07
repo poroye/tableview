@@ -9,33 +9,34 @@ import UIKit
 
 var allpeople:peoplelist = peoplelist(results: [])
 
-func fetch(){
-    guard let url = URL(string: "https://jsonblob.com/api/jsonBlob/894398690379448320") else{return}
-    let task = URLSession.shared.dataTask(with: url){
-        data, res, err in
-        guard let data = data , err == nil else {return}
-        do{
-            let PP = try JSONDecoder().decode(peoplelist.self, from: data)
-            DispatchQueue.main.async {
-                allpeople = PP
-                print(allpeople)
-                            }
-        }catch{print(error)}
-    }
-    task.resume()
-}
-
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! peopleTableViewCell
         let eachpeople = allpeople.results[indexPath.row]
         cell.peoplename.text = eachpeople.name
-        cell.peepleImage.image = UIImage(named:"31357")
+        cell.peepleImage.image = eachpeople.imageProfileUrl.load()
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allpeople.results.count
+    }
+    
+    
+    func fetch(){
+        guard let url = URL(string: "https://jsonblob.com/api/jsonBlob/894398690379448320") else{return}
+        let task = URLSession.shared.dataTask(with: url){data, res, err in
+            guard let data = data , err == nil else {return}
+            do{
+                let PP = try JSONDecoder().decode(peoplelist.self, from: data)
+                DispatchQueue.main.async {
+                    allpeople = PP
+                    print(allpeople)
+                    self.table.reloadData()
+                }
+            }catch{print(error)}
+        }
+        task.resume()
     }
 
     @IBOutlet weak var table: UITableView!

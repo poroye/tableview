@@ -5,7 +5,19 @@
 //  Created by ธนัท แสงเพิ่ม on 7/10/2564 BE.
 //
 
-import Foundation
+import UIKit
+
+extension String{
+    func load() -> UIImage{
+        do{
+            guard let url = URL(string:self)else{
+                return UIImage() //empty image
+            }
+            let data:Data = try Data(contentsOf: url)
+            return UIImage(data:data) ?? UIImage()
+        }catch{return UIImage()}
+    }
+}
 
 struct peoplelist:Codable{
     var results:[people]
