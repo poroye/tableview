@@ -15,6 +15,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let eachpeople = allpeople.results[indexPath.row]
         cell.peoplename.text = eachpeople.name
         cell.peepleImage.image = eachpeople.imageProfileUrl.load()
+        cell.peepleImage.makeRounded()
         cell.peoplePosition.text = eachpeople.position
         cell.peopleTelephone.text = eachpeople.telOrgList[0]
         cell.peopleMobilephone.text = eachpeople.mobileList[0]
