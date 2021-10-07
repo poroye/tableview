@@ -12,6 +12,11 @@ class peopleTableViewCell: UITableViewCell {
     @IBOutlet weak var peopleview: UIView!
     @IBOutlet weak var peoplename: UILabel!
     @IBOutlet weak var peepleImage: UIImageView!
+    @IBOutlet weak var peoplePosition: UILabel!
+    @IBOutlet weak var peopleTelephone: UILabel!
+    @IBOutlet weak var peopleMobilephone: UILabel!
+    @IBOutlet weak var peopleEmail: UILabel!
+    @IBOutlet weak var peopleNavdate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
