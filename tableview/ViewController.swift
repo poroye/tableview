@@ -6,10 +6,12 @@
 //
 
 import UIKit
-
-var allpeople:peoplelist = peoplelist(results: [])
+import Alamofire
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+    
+    var allpeople:peoplelist = peoplelist(results: [])
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! peopleTableViewCell
         let eachpeople = allpeople.results[indexPath.row]
@@ -36,21 +38,39 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             do{
                 let PP = try JSONDecoder().decode(peoplelist.self, from: data)
                 DispatchQueue.main.async {
-                    allpeople = PP
-                    print(allpeople)
-                    print("--> \(strToDate(strDate: allpeople.results[0].nav_date)) << date")
+                    self.allpeople = PP
+                    print(self.allpeople)
+//                    print("--> \(strToDate(strDate: self.allpeople.results[0].nav_date)) << date")
                     self.table.reloadData()
                 }
             }catch{print(error)}
         }
         task.resume()
     }
+    
+    func fetchAlamo(){
+        AF.request("https://jsonblob.com/api/jsonBlob/894398690379448320").responseJSON{ (response) in
+            switch response.result{
+            case .success:
+                do{
+                    let result = try JSONDecoder().decode(peoplelist.self, from: response.data!)
+//                    print(result.results[0])
+                    self.allpeople = result
+                    self.table.reloadData()
+                }catch{
+                    print("fail decode : \(response.error!)")
+                }
+            case let .failure(err):
+                print("fail request : \(err)")
+            }
+        }
+    }
 
     @IBOutlet weak var table: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetch()
+        fetchAlamo()
         table.delegate = self
         table.dataSource = self
         
