@@ -7,14 +7,17 @@
 
 import Foundation
 
-struct peoplelist:Codable{
-    var results:[people]
+struct Peoplelist:Codable{
+    var results:[People]
 }
 
-struct people:Codable{
+struct People:Codable{
     let name:String
+    let nameEng:String
+    let orgNameWbs:String
     let position:String
     let telOrgList:[String]
+    let telOrgExt:String
     let mobileList:[String]
     let emailGov:String
     let nav_date:String

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class peopleTableViewCell: UITableViewCell {
+class PeopleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var peopleview: UIView!
     @IBOutlet weak var peoplename: UILabel!

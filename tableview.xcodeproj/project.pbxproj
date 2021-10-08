@@ -15,7 +15,8 @@
 		155A589B270E8B72007E77C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 155A589A270E8B72007E77C5 /* Assets.xcassets */; };
 		155A589E270E8B72007E77C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155A589C270E8B72007E77C5 /* LaunchScreen.storyboard */; };
 		155A58A6270E8C93007E77C5 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A58A5270E8C93007E77C5 /* model.swift */; };
-		155A58A8270E9AE7007E77C5 /* peopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A58A7270E9AE7007E77C5 /* peopleTableViewCell.swift */; };
+		155A58A8270E9AE7007E77C5 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A58A7270E9AE7007E77C5 /* PeopleTableViewCell.swift */; };
+		15F2607F2710216400A71C04 /* CharViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F2607E2710216400A71C04 /* CharViewController.swift */; };
 		6E78A8F0976E6C1A52AF0753 /* Pods_tableview.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9E02708E0FCE748578AD0D /* Pods_tableview.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +31,8 @@
 		155A589D270E8B72007E77C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		155A589F270E8B72007E77C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		155A58A5270E8C93007E77C5 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
-		155A58A7270E9AE7007E77C5 /* peopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = peopleTableViewCell.swift; sourceTree = "<group>"; };
+		155A58A7270E9AE7007E77C5 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
+		15F2607E2710216400A71C04 /* CharViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharViewController.swift; sourceTree = "<group>"; };
 		3211343196047BB2420DA5FF /* Pods-tableview.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tableview.release.xcconfig"; path = "Target Support Files/Pods-tableview/Pods-tableview.release.xcconfig"; sourceTree = "<group>"; };
 		D6FF40493787DA3ED92ED28C /* Pods-tableview.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tableview.debug.xcconfig"; path = "Target Support Files/Pods-tableview/Pods-tableview.debug.xcconfig"; sourceTree = "<group>"; };
 		EA9E02708E0FCE748578AD0D /* Pods_tableview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tableview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,11 +76,12 @@
 				155A5891270E8B6F007E77C5 /* AppDelegate.swift */,
 				155A5893270E8B6F007E77C5 /* SceneDelegate.swift */,
 				155A5895270E8B6F007E77C5 /* ViewController.swift */,
+				155A58A7270E9AE7007E77C5 /* PeopleTableViewCell.swift */,
+				15F2607E2710216400A71C04 /* CharViewController.swift */,
 				155A5897270E8B6F007E77C5 /* Main.storyboard */,
 				155A589A270E8B72007E77C5 /* Assets.xcassets */,
 				155A589C270E8B72007E77C5 /* LaunchScreen.storyboard */,
 				155A589F270E8B72007E77C5 /* Info.plist */,
-				155A58A7270E9AE7007E77C5 /* peopleTableViewCell.swift */,
 			);
 			path = tableview;
 			sourceTree = "<group>";
@@ -97,7 +100,6 @@
 				D6FF40493787DA3ED92ED28C /* Pods-tableview.debug.xcconfig */,
 				3211343196047BB2420DA5FF /* Pods-tableview.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -218,10 +220,11 @@
 			files = (
 				155A5896270E8B6F007E77C5 /* ViewController.swift in Sources */,
 				1526A0D5270FE62B0092180C /* Util.swift in Sources */,
-				155A58A8270E9AE7007E77C5 /* peopleTableViewCell.swift in Sources */,
+				155A58A8270E9AE7007E77C5 /* PeopleTableViewCell.swift in Sources */,
 				155A5892270E8B6F007E77C5 /* AppDelegate.swift in Sources */,
 				155A5894270E8B6F007E77C5 /* SceneDelegate.swift in Sources */,
 				155A58A6270E8C93007E77C5 /* model.swift in Sources */,
+				15F2607F2710216400A71C04 /* CharViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
