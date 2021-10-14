@@ -1,15 +1,11 @@
 //
-//  model.swift
+//  People.swift
 //  tableview
 //
-//  Created by ธนัท แสงเพิ่ม on 7/10/2564 BE.
+//  Created by ธนัท แสงเพิ่ม on 14/10/2564 BE.
 //
 
 import Foundation
-
-struct Peoplelist:Codable{
-    var results:[People]
-}
 
 struct People:Codable{
     let name:String

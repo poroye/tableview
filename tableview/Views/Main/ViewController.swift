@@ -34,8 +34,24 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.self[1])
-        rowToGo = indexPath.self[1]
-        self.performSegue(withIdentifier: "goToChar", sender: self)
+        rowToGo = indexPath.row //indexPath.self[1]
+        let nowPeople = allpeople.results[rowToGo]
+//        self.performSegue(withIdentifier: "goToChar", sender: self)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CharViewController") as! CharViewController
+        vc.imageValue = nowPeople.imageProfileUrl
+        vc.emailValue = nowPeople.emailGov
+        vc.engNameValue = nowPeople.nameEng
+        vc.thaiNameValue = nowPeople.name
+        vc.copValue = nowPeople.orgNameWbs
+        vc.telValue = nowPeople.telOrgList[0]
+        vc.inTelValue = nowPeople.telOrgExt
+        vc.mTelValue = nowPeople.mobileList[0]
+        vc.emailValue = nowPeople.emailGov
+
+        navigationController?.pushViewController(vc, animated: true)
+        // have to have navigationController in storyboard
     }
     
 //    func fetch(){
@@ -54,45 +70,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //        }
 //        task.resume()
 //    }
-    
-    func fetchAlamo(){
-        AF.request("https://jsonblob.com/api/jsonBlob/894398690379448320").responseJSON{ (response) in
-            switch response.result{
-            case .success:
-                do{
-                    let result = try JSONDecoder().decode(Peoplelist.self, from: response.data!)
-                    print(result.results[0])
-                    self.allpeople = result
-                    self.table.reloadData()
-                }catch{
-                    print("fail decode : \(response.error!)")
-                }
-            case let .failure(err):
-                print("fail request : \(err)")
-            }
-        }
-    }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToChar"{
-            let destinationVC = segue.destination as! CharViewController
-            destinationVC.imageValue = allpeople.results[rowToGo].imageProfileUrl
-            destinationVC.emailValue = allpeople.results[rowToGo].emailGov
-            destinationVC.engNameValue = allpeople.results[rowToGo].nameEng
-            destinationVC.thaiNameValue = allpeople.results[rowToGo].name
-            destinationVC.copValue = allpeople.results[rowToGo].orgNameWbs
-            destinationVC.telValue = allpeople.results[rowToGo].telOrgList[0]
-            destinationVC.inTelValue = allpeople.results[rowToGo].telOrgExt
-            destinationVC.mTelValue = allpeople.results[rowToGo].mobileList[0]
-            destinationVC.emailValue = allpeople.results[rowToGo].emailGov
-        }
-    }
-    
     @IBOutlet weak var table: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchAlamo()
+        Repository.fetchAlamo(onSuccuss: { result in
+            self.allpeople = result
+            self.table.reloadData()
+        })
         table.delegate = self
         table.dataSource = self
         

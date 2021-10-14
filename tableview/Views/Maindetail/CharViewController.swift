@@ -31,6 +31,7 @@ class CharViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("charViewDidLoad")
         imageProfile.image = imageValue?.load()
         imageProfile.makeRounded()
         engName.text = engNameValue
@@ -44,11 +45,6 @@ class CharViewController: UIViewController {
     }
     
     @IBAction func backButtonPress(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
-    
-    
-   
-   
-
 }
